@@ -5,6 +5,7 @@ import './App.css'
 import {Landing} from "./Landing.tsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Login from "./Login.tsx";
+import SignIn from "./SignIn.tsx";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,6 +16,7 @@ function App() {
         <Routes>
             <Route path='/' element={<Landing/>}/>
             <Route path='/login' element={<Login/>}/>
+            <Route path='/signin' element={<SignIn/>}/>
 
 
         </Routes>
