@@ -3,8 +3,8 @@ import {useNavigate} from "react-router-dom";
 export default function SignIn() {
 
     const navigate = useNavigate()
-    function handleNav(){
-        navigate('/login')
+    function handleNav(nav: string){
+        navigate(nav)
     }
     return <div className='h-screen bg-gradient-to-b from-gray-900 via-indigo-900 to-purple-800'>
         <div className='pt-24'>
@@ -36,10 +36,15 @@ export default function SignIn() {
 
 
                 <div
-                    className='text-center px-3 py-2 bg-purple-700 bg-opacity-40 mx-auto w-max mt-4 rounded-xl text-white'>Sign Up
+                    className='text-center px-3 py-2 bg-purple-700 bg-opacity-40 mx-auto w-max mt-4 rounded-xl text-white'
+                    onClick={() => handleNav('/homepage')}
+
+
+                >Sign Up
+
                 </div>
                 <div className='text-white font-light text-sm text-center mt-3'>Already have an account? <span
-                    className='underline text-blue-300' onClick={handleNav}>Log In</span></div>
+                    className='underline text-blue-300' onClick={() => handleNav('/login')}>Log In</span></div>
             </div>
         </div>
     </div>
