@@ -7,6 +7,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Login from "./Login.tsx";
 import SignIn from "./SignIn.tsx";
 import HomePage from "./HomePage.tsx";
+import Settings from "./Settings.tsx";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,7 @@ function App() {
             <Route path='/login' element={<Login/>}/>
             <Route path='/signin' element={<SignIn/>}/>
             <Route path='/homepage' element={<HomePage/>}/>
+            <Route path='/settings' element={<Settings/>}/>
 
 
         </Routes>

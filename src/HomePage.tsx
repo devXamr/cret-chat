@@ -1,15 +1,20 @@
 import { CiSettings } from "react-icons/ci";
 import { IoMdAddCircle } from "react-icons/io";
 import SingleHomepageChat from "./SingleHomepageChat.tsx";
+import {useNavigate} from "react-router-dom";
 
 export default function HomePage(){
+    const navigate = useNavigate()
+    function handleNav(){
+        navigate('/settings')
+    }
 
     return <div className='h-screen bg-gradient-to-b from-gray-900 via-indigo-900 to-purple-800'>
 
 
         <div className='flex justify-between mx-5 text-purple-700 text-3xl pt-5 pb-2'>
 
-            <CiSettings />
+            <CiSettings onClick={handleNav}/>
             <IoMdAddCircle/>
         </div>
         <div className='bg-gray-900 w-full mt-3 rounded-t-xl pb-5 h-screen'>
