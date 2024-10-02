@@ -10,8 +10,8 @@ export default function HomePage(){
     const navigate = useNavigate()
     const [modalOpen, setModalOpen] = useState(false)
     const [number, setNumber] = useState(3)
-    function handleNav(){
-        navigate('/settings')
+    function handleNav(nav){
+        navigate(`/${nav}`)
     }
 
     function handleAdd(){
@@ -26,7 +26,7 @@ export default function HomePage(){
 
         <div className='flex justify-between mx-5 text-purple-700 text-3xl pt-5 pb-2'>
 
-            <CiSettings onClick={handleNav}/>
+            <CiSettings onClick={() => handleNav('settings')}/>
             <IoMdAddCircle onClick={() => pickNum(0)}/>
         </div>
 
@@ -59,16 +59,17 @@ export default function HomePage(){
                     <MdOutlineCancel onClick={() => pickNum(3)} className='text-white text-2xl font-semibold mb-6'/>
                 </div>
                 <div className='text-xl text-white font-semibold px-4 text-center'>Create your own room</div>
-                <div>Enter Room Name:</div>
+                <div className=' font-semibold text-white mt-3'>Enter Room Name:</div>
                 <input placeholder='eg. Goa Trip'
-                       className='w-full pr-4 pl-2 py-1.5 rounded-sm bg-white bg-opacity-30 placeholder:text-white mt-3'/>
+                       className='w-full pr-4 pl-2 py-1.5 rounded-sm bg-white bg-opacity-30 placeholder:text-white'/>
 
-                <div>Enter room code:</div>
+                <div className=' font-semibold text-white mt-3'>Enter room code:</div>
                 <input placeholder='eg. EW1968'
-                       className='w-full pr-4 pl-2 py-1.5 rounded-sm bg-white bg-opacity-30 placeholder:text-white mt-3'/>
+                       className='w-full pr-4 pl-2 py-1.5 rounded-sm bg-white bg-opacity-30 placeholder:text-white'/>
 
-                <div>Enter room duration:</div>
-                <input type='number' className='w-full pr-4 pl-2 py-1.5 rounded-sm bg-white bg-opacity-30 placeholder:text-white mt-3' placeholder='Enter room duration'/>
+                <div className=' font-semibold text-white mt-3'>Enter room duration:</div>
+                <input type='number' className='w-full pr-4 pl-2 py-1.5 rounded-sm bg-white bg-opacity-30 placeholder:text-white' placeholder='Enter room duration'/>
+                <div className='text-sm mt-2 font-light text-white'>The room duration can range from 1 day to 30 days.</div>
                 <div className='text-center mt-3 text-white bg-purple-500 py-1 rounded-md'> Submit</div>
 
 
@@ -81,7 +82,7 @@ export default function HomePage(){
             <div className='text-purple-500 text-center font-semibold pt-5 text-xl'> All Chats</div>
             <div className='pt-5'>
                 <SingleHomepageChat lastmessage='Hey guys, next week we are all going to celebrate my birthday'
-                                    duration='13' groupName='Birthday 2025' senderName='Ramesh'/>
+                                    duration='13' groupName='Birthday 2025' senderName='Ramesh' navLocation='chat'/>
 
             </div>
 

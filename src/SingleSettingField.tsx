@@ -22,7 +22,15 @@ export default function SingleSettingField({fieldName, fieldValue}: SettingField
             <div className='text-purple-500'>{fieldName + ':'}</div>
 
 
-            <div className='ml-3 text-white'>{fieldValue}</div>
+            {!isEditClicked && <div className='ml-3 text-white'>{fieldValue}</div>}
+            {isEditClicked && <div>
+                <input type='text' placeholder='Enter new value'
+                       className='w-60 pr-4 pl-2 ml-2 py-1 rounded-md bg-white bg-opacity-30 placeholder:text-white placeholder:font-light'/>
+                <div className='flex justify-between text-white'>
+                    <div className='bg-purple-500 px-2 py-0.5 rounded-md mt-3 ml-2'>Save</div>
+                    <div className='bg-purple-500 px-2 py-0.5 rounded-md mt-3 ml-2' onClick={()=> {setIsEditClicked(false)}}>Cancel</div>
+                </div>
+            </div>}
         </div>
 
         {!isEditClicked && <FaRegEdit className='text-purple-500 mt-1' onClick={handleEditClick}/>}

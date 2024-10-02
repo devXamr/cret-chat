@@ -8,6 +8,7 @@ import Login from "./Login.tsx";
 import SignIn from "./SignIn.tsx";
 import HomePage from "./HomePage.tsx";
 import Settings from "./Settings.tsx";
+import SingleChatFullPage from "./SingleChatFullPage.tsx";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +22,8 @@ function App() {
             <Route path='/signin' element={<SignIn/>}/>
             <Route path='/homepage' element={<HomePage/>}/>
             <Route path='/settings' element={<Settings/>}/>
+
+            <Route path='/chat' element={<SingleChatFullPage/>}/>
 
 
         </Routes>
