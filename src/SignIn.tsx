@@ -1,11 +1,19 @@
 import {useNavigate} from "react-router-dom";
+import {useState} from "react";
 
 export default function SignIn() {
-
+    const [username, setUsername] = useState('')
     const navigate = useNavigate()
     function handleNav(nav: string){
         navigate(nav)
     }
+
+    async function  handleClick(){
+        await localStorage.setItem('username', JSON.stringify(username))
+        handleNav('/homepage')
+        await console.log(JSON.parse(localStorage.getItem('username')))
+    }
+
     return <div className='h-screen bg-gradient-to-b from-gray-900 via-indigo-900 to-purple-800'>
         <div className='pt-24'>
 
@@ -18,7 +26,7 @@ export default function SignIn() {
 
                 <div className='text-white mt-3'>Username</div>
                 <input type='text' placeholder='Enter your name'
-                       className='px-3 py-2 rounded-lg bg-white bg-opacity-20'/>
+                       className='px-3 py-2 rounded-lg bg-white bg-opacity-20' onChange={(e) => setUsername(e.target.value)} value={username}/>
 
 
                 <div className='text-white mt-3'>Email</div>
@@ -37,7 +45,7 @@ export default function SignIn() {
 
                 <div
                     className='text-center px-3 py-2 bg-purple-700 bg-opacity-40 mx-auto w-max mt-4 rounded-xl text-white'
-                    onClick={() => handleNav('/homepage')}
+                    onClick={handleClick}
 
 
                 >Sign Up
