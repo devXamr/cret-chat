@@ -2,19 +2,19 @@ import { IoMdTimer } from "react-icons/io";
 import {useNavigate} from "react-router-dom";
 
 interface SingleChatBox {
-    lastmessage : string,
+    lastmessage? : string,
     groupName: string,
     duration: string,
-    senderName: string,
+    senderName?: string,
     navLocation: string
 
 
 }
-export default function SingleHomepageChat({lastmessage, groupName, duration, senderName, navLocation} : SingleChatBox) {
+export default function SingleHomepageChat({lastmessage = '', groupName, duration, senderName = '', navLocation} : SingleChatBox) {
     const navigate = useNavigate()
 
     function handleNav (location) {
-        navigate(`/${location}`)
+        navigate(`/chat/${location}`)
     }
 
     return <div className='bg-white bg-opacity-15 text-white mx-1 px-3 py-2 rounded-lg mt-1.5' onClick={() => handleNav(navLocation)}>

@@ -3,17 +3,20 @@ import { MdSend } from "react-icons/md";
 import {useEffect, useMemo, useState} from "react";
 import io from 'socket.io-client'
 import ScrollToBottom from 'react-scroll-to-bottom'
+import {getAllChats} from "./HomePage.tsx";
+import {useParams} from "react-router-dom";
 
 
 
-const socket = io('http://localhost:3001');
+export const socket = io('http://localhost:3001');
 export default function SingleChatFullPage(){
 
     const [allMessages, setAllMessages] = useState([])
     const [currentMessage, setCurrentMessage] = useState('')
     const d = new Date()
     let username = getUsername()
-
+    const {id} = useParams()
+    const [allNames, setAllNames] = useState(getAllChats)
     function handleSend(e){
         e.preventDefault()
         socket.emit('send_message',{content: currentMessage, sender: username, time: d.getHours() +':' + d.getMinutes()} )
@@ -32,10 +35,10 @@ export default function SingleChatFullPage(){
     return <div className='h-screen overflow-hidden bg-gradient-to-b from-gray-900 via-indigo-900 to-purple-800'>
         <div className='pt-3'>
             <div className='bg-black bg-opacity-25 text-white mx-2 rounded-xl'>
-                <div className='font-bold text-xl px-3 pt-3'>Birthday 2025</div>
+                <div className='font-bold text-xl px-3 pt-3'>default name</div>
                 <div className='flex justify-between'>
                     <div className='px-3 font-light pt-1 pb-2'>view group details</div>
-                    <div className='px-3 pt-1 font-light'>expires in 23h</div>
+                    <div className='px-3 pt-1 font-light'>expires in 5h</div>
                 </div>
             </div>
             <div className='bg-black bg-opacity-25 text-white mx-2 rounded-xl mt-4 py-2 h-screen'>
