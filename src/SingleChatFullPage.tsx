@@ -41,15 +41,17 @@ export default function SingleChatFullPage(){
                     <div className='px-3 pt-1 font-light'>expires in 5h</div>
                 </div>
             </div>
+            <ScrollToBottom>
             <div className='bg-black bg-opacity-25 text-white mx-2 rounded-xl mt-4 py-2 h-screen'>
 
 
 
 
-                <ScrollToBottom>
+
                 { allMessages.length > 0 ? allMessages.map((eachMsg) => <SingleMessage messageContent={eachMsg.content} sender={eachMsg.sender} time={eachMsg.time}/>): 'no messages here, be the first to break the ice'}
-                </ScrollToBottom>
+
             </div>
+            </ScrollToBottom>
 
 
 

@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        logo: ['Pacifico']
+        logo: ['Pacifico'],
+        satoshi : ['Satoshi', 'sans-serif']
       }
     },
   },
